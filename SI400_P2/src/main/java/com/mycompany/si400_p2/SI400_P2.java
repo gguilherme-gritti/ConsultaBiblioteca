@@ -5,6 +5,8 @@
 
 package com.mycompany.si400_p2;
 
+import model.DAO;
+
 /**
  *
  * @author Gritti
@@ -12,6 +14,7 @@ package com.mycompany.si400_p2;
 public class SI400_P2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        DAO dao = new DAO(); 
+        System.out.println(dao.getConnection());
     }
 }
