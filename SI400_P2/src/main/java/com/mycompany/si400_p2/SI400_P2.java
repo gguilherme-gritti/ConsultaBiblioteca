@@ -14,7 +14,11 @@ import model.DAO;
 public class SI400_P2 {
 
     public static void main(String[] args) {
+        
+        String user = "si400_2022";
+        String password = "si400_2022";
+        
         DAO dao = new DAO(); 
-        System.out.println(dao.getConnection());
+        System.out.println(dao.getConnection(user, password));
     }
 }

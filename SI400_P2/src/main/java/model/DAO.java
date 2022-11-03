@@ -21,7 +21,7 @@ public class DAO {
     private static String password = "si400_2022";
 
     // Connect to Database
-    public static Connection getConnection() {
+    public static Connection getConnection(String user, String password) {
         if (con == null) {
             try {
                 con = DriverManager.getConnection(DBURL, user, password);
@@ -70,7 +70,7 @@ public class DAO {
 
     public static void close() {
         try {
-            (DAO.getConnection()).close();
+            (DAO.getConnection(user, password)).close();
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -81,7 +81,7 @@ public class DAO {
         try {
             PreparedStatement stmt;
 
-            stmt = DAO.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS Fragmentos( \n"
+            stmt = DAO.getConnection(user, password).prepareStatement("CREATE TABLE IF NOT EXISTS Fragmentos( \n"
                     + "groupId INTEGER, \n"
                     + "file VARCHAR, \n"
                     + "line INTEGER, \n"
