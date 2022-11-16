@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.Controller;
+import java.util.List;
 import javax.swing.ImageIcon;
+import model.Fragmento;
 
 /**
  *
@@ -17,6 +15,7 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     private Authentication modalAuth = null;
+    private Warning modalWarning = null;
 
     public Main() {
         initComponents();
@@ -28,10 +27,10 @@ public class Main extends javax.swing.JFrame {
                 + " mariadb, interface gráfica com manipulação de eventos e utilização de imagens.");
 
         jTextPane3.setText("Desconectado");
-        
+
         jTextField1.setEnabled(false);
         jButton1.setEnabled(false);
-        
+
         jLabel17.setIcon(new ImageIcon("src/main/java/images/guilherme-ico.png"));
         jLabel18.setIcon(new ImageIcon("src/main/java/images/download.png"));
         jLabel19.setIcon(new ImageIcon("src/main/java/images/elias-ico.png"));
@@ -39,6 +38,8 @@ public class Main extends javax.swing.JFrame {
         jLabel21.setIcon(new ImageIcon("src/main/java/images/maria-ico.png"));
 
         modalAuth = new Authentication(this, true);
+        modalWarning = new Warning(this, true);
+
     }
 
     /**
@@ -103,7 +104,9 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setText("Texto:");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setDisabledTextColor(new java.awt.Color(79, 79, 79));
         jTextArea1.setEnabled(false);
         jScrollPane4.setViewportView(jTextArea1);
 
@@ -120,6 +123,11 @@ public class Main extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(65, 105, 225));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Buscar Texto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -311,6 +319,19 @@ public class Main extends javax.swing.JFrame {
         Controller.closeConnection();
         this.show(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (Controller.isValidGroup(jTextField1.getText())) {
+            List<Fragmento> fragmentos = Controller.search(jTextField1.getText());
+            String text = Controller.getText(fragmentos);
+            
+            jTextArea1.setText(text);
+        } else {
+            modalWarning.setMessage("Grupo não encontrado ou inválido.");
+            modalWarning.show();
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

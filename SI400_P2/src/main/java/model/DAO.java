@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.*;
@@ -20,8 +16,25 @@ public class DAO {
     private static String user = "si400_2022";
     private static String password = "si400_2022";
 
-    // Connect to Database
-    public static Connection getConnection(String user, String password) {
+    public static Connection getConnAuthenticate(String userAuth, String passwordAuth) {
+        if (con == null) {
+            try {
+                con = DriverManager.getConnection(DBURL, userAuth, passwordAuth);
+                if (con != null) {
+                    DatabaseMetaData meta = con.getMetaData();
+                }
+                user = userAuth;
+                password = passwordAuth;
+                
+                System.out.println(con);
+            } catch (SQLException e) {
+                System.err.println("Exception: " + e.getMessage());
+            }
+        }
+        return con;
+    }
+    
+    public static Connection getConnection(){
         if (con == null) {
             try {
                 con = DriverManager.getConnection(DBURL, user, password);
@@ -36,7 +49,7 @@ public class DAO {
         return con;
     }
 
-    public static boolean getStatusCon() {
+    public static boolean getStatusConnection() {
         if (con == null) {
             return false;
         }
@@ -62,21 +75,6 @@ public class DAO {
         return update;
     }
 
-    protected int lastId(String tableName, String primaryKey) {
-        Statement s;
-        int lastId = -1;
-        try {
-            s = (Statement) con.createStatement();
-            ResultSet rs = s.executeQuery("SELECT MAX(" + primaryKey + ") AS id FROM " + tableName);
-            if (rs.next()) {
-                lastId = rs.getInt("id");
-            }
-        } catch (SQLException e) {
-            System.err.println("Exception: " + e.getMessage());
-        }
-        return lastId;
-    }
-
     public static void close() {
         try {
             if (con == null) {
@@ -90,11 +88,11 @@ public class DAO {
     }
 
     /* Criação de Teste de Implementação */
-    public boolean createTable() {
+    protected boolean createTable() {
         try {
             PreparedStatement stmt;
             
-            stmt = DAO.getConnection(user, password).prepareStatement("CREATE TABLE IF NOT EXISTS Fragmentos( \n"
+            stmt = DAO.getConnAuthenticate("si400_2022", "si400_2022").prepareStatement("CREATE TABLE IF NOT EXISTS Fragmentos( \n"
                     + "groupId INTEGER, \n"
                     + "file VARCHAR(80), \n"
                     + "line INTEGER, \n"
