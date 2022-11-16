@@ -5,6 +5,7 @@
 package view;
 
 import controller.Controller;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -30,6 +31,12 @@ public class Main extends javax.swing.JFrame {
         
         jTextField1.setEnabled(false);
         jButton1.setEnabled(false);
+        
+        jLabel17.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel18.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel19.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel20.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel21.setIcon(new ImageIcon("src/main/java/images/download.png"));
 
         modalAuth = new Authentication(this, true);
     }
@@ -78,6 +85,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Status da Conexão:");
 
         jButton2.setText("Autenticar");
@@ -87,9 +95,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jTextPane3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jTextPane3.setEnabled(false);
         jScrollPane3.setViewportView(jTextPane3);
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Texto:");
 
         jTextArea1.setColumns(20);
@@ -104,6 +114,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("Grupo:");
 
         jButton1.setBackground(new java.awt.Color(65, 105, 225));
@@ -141,19 +152,18 @@ public class Main extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 9, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))))
-                .addGap(18, 18, 18)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -163,18 +173,22 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Arquivo", jPanel3);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Ajuda");
 
+        jTextPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jTextPane2.setEnabled(false);
         jScrollPane2.setViewportView(jTextPane2);
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Sobre");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel1.setText("SI400 Projeto 2 Versão 1.0");
 
         jLabel2.setText("Desenvolvido Por:");
@@ -207,6 +221,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8)
@@ -214,12 +229,13 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(52, 52, 52)
                         .addComponent(jLabel10)
-                        .addGap(93, 93, 93)
+                        .addGap(85, 85, 85)
                         .addComponent(jLabel11)
-                        .addGap(55, 55, 55))
+                        .addGap(63, 63, 63))
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,14 +259,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel11))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel10)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,8 +296,8 @@ public class Main extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         modalAuth.show();
-        if (modalAuth.getStatusConn() == "Conectado") {
-            jTextPane3.setText(modalAuth.getStatusConn());
+        if (Controller.getStatusConnection()) {
+            jTextPane3.setText("Conectado");
             jButton2.setEnabled(false);
             jTextField1.setEnabled(true);
             jButton1.setEnabled(true);
@@ -292,6 +306,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Controller.closeConnection();
         this.show(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 

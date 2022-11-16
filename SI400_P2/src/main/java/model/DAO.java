@@ -28,11 +28,20 @@ public class DAO {
                 if (con != null) {
                     DatabaseMetaData meta = con.getMetaData();
                 }
+                System.out.println(con);
             } catch (SQLException e) {
                 System.err.println("Exception: " + e.getMessage());
             }
         }
         return con;
+    }
+    
+    public static boolean getStatusCon(){
+        if(con == null){
+            return false;
+        }
+        
+        return true;
     }
 
     protected ResultSet getResultSet(String query) {
@@ -70,7 +79,11 @@ public class DAO {
 
     public static void close() {
         try {
-            (DAO.getConnection(user, password)).close();
+            if(con == null){
+                return;
+            }
+            con.close();
+            System.out.println("\n conexão encerrada.");
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }

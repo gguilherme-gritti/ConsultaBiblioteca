@@ -13,12 +13,6 @@ import controller.Controller;
  */
 public class Authentication extends javax.swing.JDialog {
     
-    private String statusConn = "Desconectado";
-    
-    public String getStatusConn() {
-        return statusConn;
-    }
- 
     /**
      * Creates new form Authentication
      */
@@ -48,7 +42,7 @@ public class Authentication extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Autenticação BD");
+        jLabel1.setText("Autenticação");
 
         jLabel2.setText("Usuário");
 
@@ -82,12 +76,9 @@ public class Authentication extends javax.swing.JDialog {
                                 .addContainerGap()
                                 .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(109, 109, 109)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel3)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 268, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTextField2)))
@@ -108,6 +99,10 @@ public class Authentication extends javax.swing.JDialog {
                         .addComponent(jLabel4)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,10 +132,8 @@ public class Authentication extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        boolean con = Controller.authentication(jTextField1.getText(), jTextField2.getText());
 
-        if (con == true) {
-            this.statusConn = "Conectado";
+        if (Controller.authentication(jTextField1.getText(), jTextField2.getText()) == true) {
             this.show(false);
         }else{
             jLabel4.setText("Falha na autenticação. Usuário ou senha incorreto(s)");
@@ -150,6 +143,7 @@ public class Authentication extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jLabel4.setText("");
         this.show(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 

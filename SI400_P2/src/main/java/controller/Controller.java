@@ -23,4 +23,12 @@ public class Controller {
         return true;
     }
     
+    public static boolean getStatusConnection(){
+        return DAO.getStatusCon();
+    }
+    
+    public static void closeConnection(){
+        DAO.close();
+    }
+  
 }
