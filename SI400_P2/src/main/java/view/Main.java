@@ -15,6 +15,9 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+    
+    private Authentication modalAuth = null;
+    
     public Main() {
         initComponents();
         initProgram();
@@ -25,6 +28,8 @@ public class Main extends javax.swing.JFrame {
                 + " mariadb, interface gráfica com manipulação de eventos e utilização de imagens.");
         
         jTextPane3.setText("Desconectado");
+        
+        modalAuth = new Authentication(this, true);
     }
 
     /**
@@ -88,6 +93,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTextArea1);
 
         jButton3.setText("Sair");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -244,12 +254,15 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        boolean con = Controller.authentication("si400_2022", "si400_2022");
-        
-        if(con == true){
-            jTextPane3.setText("Conectado");
-        }
+
+        modalAuth.show();
+        jTextPane3.setText(modalAuth.getStatusConn());
+        jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.show(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,7 +298,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
