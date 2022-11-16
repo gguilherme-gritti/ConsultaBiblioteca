@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.sql.Connection;
 import model.DAO;
 import java.util.ArrayList;
@@ -14,7 +16,8 @@ import model.FragmentoDAO;
 public class Controller {
 
     private static char[] groups = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
-    private static List<Fragmento> selectedText = new ArrayList();
+    private static String finalText = "";
+    private static String finalTextName = "";
 
     public static boolean authentication(String user, String password) {
         Connection con = DAO.getConnAuthenticate(user, password);
@@ -33,17 +36,26 @@ public class Controller {
     public static void closeConnection() {
         DAO.close();
     }
-    
-    public static List<Fragmento> getSelectedText(){
-        return selectedText;
+
+    public static String getSelectedText() {
+        return finalText;
     }
     
-    public static String getText(List<Fragmento> fragmentos){
+    public static String getSelectedTextName(){
+        return finalTextName;
+    }
+
+    public static String getText(List<Fragmento> fragmentos) {
         String text = "";
+        String textName = "";
         for (Fragmento item : fragmentos) {
+            textName = item.getFile();
             text += "\n " + item.getText();
         }
         
+        finalText = text;
+        finalTextName = textName;
+
         return text;
     }
 
@@ -52,9 +64,20 @@ public class Controller {
         int groupdId = getGroupId(character);
 
         fragmentos = searchByGroupId(groupdId);
-        selectedText = fragmentos;
 
         return fragmentos;
+    }
+
+    public static void fileText(String text, String name) {
+
+        try {
+            BufferedWriter br = new BufferedWriter(new FileWriter("src/main/java/texts/" + name + ".txt"));
+            br.write(text);
+            br.close();
+        } catch (Exception ex) {
+            System.err.println("Exception: " + ex.getMessage());
+        }
+
     }
 
     protected static List searchByGroupId(int groupId) {
