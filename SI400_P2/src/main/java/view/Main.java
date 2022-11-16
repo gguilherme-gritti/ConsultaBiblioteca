@@ -33,7 +33,7 @@ public class Main extends javax.swing.JFrame {
         jButton4.setEnabled(false);
 
         jLabel17.setIcon(new ImageIcon("src/main/java/images/guilherme-ico.png"));
-        jLabel18.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel18.setIcon(new ImageIcon("src/main/java/images/alline-ico.png"));
         jLabel19.setIcon(new ImageIcon("src/main/java/images/elias-ico.png"));
         jLabel20.setIcon(new ImageIcon("src/main/java/images/matheus-ico.png"));
         jLabel21.setIcon(new ImageIcon("src/main/java/images/maria-ico.png"));
