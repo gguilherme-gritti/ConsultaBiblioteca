@@ -25,7 +25,7 @@ public class DAO {
                 }
                 user = userAuth;
                 password = passwordAuth;
-                
+
                 System.out.println(con);
             } catch (SQLException e) {
                 System.err.println("Exception: " + e.getMessage());
@@ -33,8 +33,8 @@ public class DAO {
         }
         return con;
     }
-    
-    public static Connection getConnection(){
+
+    public static Connection getConnection() {
         if (con == null) {
             try {
                 con = DriverManager.getConnection(DBURL, user, password);
@@ -91,14 +91,14 @@ public class DAO {
     protected boolean createTable() {
         try {
             PreparedStatement stmt;
-            
+
             stmt = DAO.getConnAuthenticate("si400_2022", "si400_2022").prepareStatement("CREATE TABLE IF NOT EXISTS Fragmentos( \n"
                     + "groupId INTEGER, \n"
                     + "file VARCHAR(80), \n"
                     + "line INTEGER, \n"
                     + "text VARCHAR(300)); \n");
             executeUpdate(stmt);
-            
+
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);

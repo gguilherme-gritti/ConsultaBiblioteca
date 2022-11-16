@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package view;
 
 import javax.swing.ImageIcon;
@@ -11,7 +7,6 @@ import javax.swing.ImageIcon;
  * @author Gritti
  */
 public class Warning extends javax.swing.JDialog {
-    
 
     /**
      * Creates new form Warning
@@ -21,13 +16,13 @@ public class Warning extends javax.swing.JDialog {
         initComponents();
         initConfig();
     }
-    
-    protected void initConfig(){
+
+    protected void initConfig() {
         jLabel1.setIcon(new ImageIcon("src/main/java/images/warning-ico.png"));
     }
-    
-    public void setMessage(String msg){
-       jLabel2.setText(msg);
+
+    public void setMessage(String msg) {
+        jLabel2.setText(msg);
     }
 
     /**

@@ -2,13 +2,12 @@ package view;
 
 import controller.Controller;
 
-
 /**
  *
  * @author Gritti
  */
 public class Authentication extends javax.swing.JDialog {
-    
+
     /**
      * Creates new form Authentication
      */
@@ -131,7 +130,7 @@ public class Authentication extends javax.swing.JDialog {
 
         if (Controller.authentication(jTextField1.getText(), jTextField2.getText()) == true) {
             this.show(false);
-        }else{
+        } else {
             jLabel4.setText("Falha na autenticação. Usuário ou senha incorreto(s)");
             jTextField1.setText("");
             jTextField2.setText("");

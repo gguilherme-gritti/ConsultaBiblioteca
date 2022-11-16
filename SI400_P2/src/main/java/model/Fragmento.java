@@ -1,15 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 /**
  *
  * @author Gritti
  */
-public class Fragmento extends DAO{
-    
+public class Fragmento extends DAO {
+
     private int groupId;
     private String file;
     private int line;
@@ -53,7 +49,5 @@ public class Fragmento extends DAO{
     public void setText(String text) {
         this.text = text;
     }
-    
-    
-    
+
 }

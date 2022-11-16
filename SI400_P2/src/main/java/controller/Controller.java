@@ -40,8 +40,8 @@ public class Controller {
     public static String getSelectedText() {
         return finalText;
     }
-    
-    public static String getSelectedTextName(){
+
+    public static String getSelectedTextName() {
         return finalTextName;
     }
 
@@ -52,7 +52,7 @@ public class Controller {
             textName = item.getFile();
             text += "\n " + item.getText();
         }
-        
+
         finalText = text;
         finalTextName = textName;
 
