@@ -32,11 +32,11 @@ public class Main extends javax.swing.JFrame {
         jTextField1.setEnabled(false);
         jButton1.setEnabled(false);
         
-        jLabel17.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel17.setIcon(new ImageIcon("src/main/java/images/guilherme-ico.png"));
         jLabel18.setIcon(new ImageIcon("src/main/java/images/download.png"));
-        jLabel19.setIcon(new ImageIcon("src/main/java/images/download.png"));
-        jLabel20.setIcon(new ImageIcon("src/main/java/images/download.png"));
-        jLabel21.setIcon(new ImageIcon("src/main/java/images/download.png"));
+        jLabel19.setIcon(new ImageIcon("src/main/java/images/elias-ico.png"));
+        jLabel20.setIcon(new ImageIcon("src/main/java/images/matheus-ico.png"));
+        jLabel21.setIcon(new ImageIcon("src/main/java/images/maria-ico.png"));
 
         modalAuth = new Authentication(this, true);
     }
@@ -173,7 +173,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Arquivo", jPanel3);
@@ -212,14 +212,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addComponent(jSeparator3))
+                            .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(591, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel3)
@@ -243,6 +240,11 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2))
                         .addContainerGap())))
         );
         jPanel4Layout.setVerticalGroup(

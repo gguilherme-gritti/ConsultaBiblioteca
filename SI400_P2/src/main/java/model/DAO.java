@@ -13,10 +13,10 @@ import java.util.logging.Logger;
  * @author Gritti
  */
 public class DAO {
-    
-    public static final String DBURL = "jdbc:mariadb://localhost:3306?allowPublicKeyRetrieval=true&useSSL=false";
+
+    public static final String DBURL = "jdbc:mariadb://localhost:3306/SI400?allowPublicKeyRetrieval=true&useSSL=false";
     private static Connection con;
-    
+
     private static String user = "si400_2022";
     private static String password = "si400_2022";
 
@@ -35,12 +35,12 @@ public class DAO {
         }
         return con;
     }
-    
-    public static boolean getStatusCon(){
-        if(con == null){
+
+    public static boolean getStatusCon() {
+        if (con == null) {
             return false;
         }
-        
+
         return true;
     }
 
@@ -79,7 +79,7 @@ public class DAO {
 
     public static void close() {
         try {
-            if(con == null){
+            if (con == null) {
                 return;
             }
             con.close();
@@ -88,24 +88,24 @@ public class DAO {
             System.err.println("Exception: " + e.getMessage());
         }
     }
-    
+
     /* Criação de Teste de Implementação */
-    protected final boolean createTable() {
+    public boolean createTable() {
         try {
             PreparedStatement stmt;
-
+            
             stmt = DAO.getConnection(user, password).prepareStatement("CREATE TABLE IF NOT EXISTS Fragmentos( \n"
                     + "groupId INTEGER, \n"
-                    + "file VARCHAR, \n"
+                    + "file VARCHAR(80), \n"
                     + "line INTEGER, \n"
-                    + "text VARCHAR); \n");
+                    + "text VARCHAR(300)); \n");
             executeUpdate(stmt);
-
+            
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-    
+
 }
