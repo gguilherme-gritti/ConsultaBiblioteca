@@ -5,9 +5,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/* 
+ * Classe FragmentoDAO, manipulação da tabela Fragmentos com o BD
  *
- * @author Gritti
+ * @author Grupo C
+ * @version 1.0
+ * @since 1.0
  */
 public class FragmentoDAO extends DAO {
 
@@ -17,10 +20,21 @@ public class FragmentoDAO extends DAO {
         getConnection();
     }
 
+    /**
+     * Retorna a instância da conexão
+     *
+     * @return instância
+     */
     public static FragmentoDAO getInstance() {
         return (instance == null ? (instance = new FragmentoDAO()) : instance);
     }
 
+    /**
+     * Cria um objeto Fragmento
+     *
+     * @param result resultado da consulta do BD
+     * @return objeto fragmento
+     */
     private Fragmento createObject(ResultSet result) {
         Fragmento fragmento = null;
         try {
@@ -33,6 +47,12 @@ public class FragmentoDAO extends DAO {
         return fragmento;
     }
 
+    /**
+     * Executa uma query no banco
+     *
+     * @param query query SQL
+     * @return lista de fragmentos
+     */
     public List retrieve(String query) {
         List<Fragmento> fragmentos = new ArrayList();
         ResultSet rs = getResultSet(query);
@@ -47,6 +67,12 @@ public class FragmentoDAO extends DAO {
         return fragmentos;
     }
 
+    /**
+     * Executa uma query no BD pelo id do grupo
+     *
+     * @param groupId resultado da consulta do BD
+     * @return Lista de fragmentos
+     */
     public List getByGroupId(int groupId) {
         return this.retrieve("SELECT * FROM Fragmentos WHERE groupId = " + groupId
                 + " ORDER BY line");

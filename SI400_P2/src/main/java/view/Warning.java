@@ -2,9 +2,12 @@ package view;
 
 import javax.swing.ImageIcon;
 
-/**
+/* 
+ * Classe Warning, Interface de feedback
  *
- * @author Gritti
+ * @author Grupo C
+ * @version 1.0
+ * @since 1.0
  */
 public class Warning extends javax.swing.JDialog {
 
@@ -17,10 +20,19 @@ public class Warning extends javax.swing.JDialog {
         initConfig();
     }
 
+    /**
+     * Define a imagem de Atenção
+     *
+     */
     protected void initConfig() {
         jLabel1.setIcon(new ImageIcon("src/main/java/images/warning-ico.png"));
     }
 
+    /**
+     * "Seta" a mensagem de texto a ser exibida
+     *
+     *
+     */
     public void setMessage(String msg) {
         jLabel2.setText(msg);
     }
@@ -82,6 +94,11 @@ public class Warning extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Fecha a interface/modal
+     *
+     * @param evt evento
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         setMessage("");
         this.show(false);

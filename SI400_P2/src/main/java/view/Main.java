@@ -1,5 +1,12 @@
 package view;
 
+/* 
+ * Classe Main, Interface principal
+ *
+ * @author Grupo C
+ * @version 1.0
+ * @since 1.0
+ */
 import controller.Controller;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -11,9 +18,6 @@ import model.Fragmento;
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
     private Authentication modalAuth = null;
     private Warning modalWarning = null;
 
@@ -22,6 +26,10 @@ public class Main extends javax.swing.JFrame {
         initProgram();
     }
 
+    /**
+     * Inicializa os textos e estados iniciais dos elementos da GUI
+     *
+     */
     public void initProgram() {
         jTextPane2.setText("Trabalho da disciplina SI400 - Programação Orientada a Objetos II. A aplicação consiste em uma conexão com banco de dados"
                 + " mariadb, interface gráfica com manipulação de eventos e utilização de imagens.");
@@ -329,11 +337,21 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Fecha a conexão com o banco e a aplicação
+     *
+     * @param evt evento
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Controller.closeConnection();
         this.show(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Valida a busca pelo texto e consulta o banco para gerar em tela
+     *
+     * @param evt evento
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (Controller.isValidGroup(jTextField1.getText())) {
             List<Fragmento> fragmentos = Controller.search(jTextField1.getText());
@@ -358,6 +376,11 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Gera o arquivo txt
+     *
+     * @param evt evento
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Controller.fileText(Controller.getSelectedText(), Controller.getSelectedTextName());
     }//GEN-LAST:event_jButton4ActionPerformed

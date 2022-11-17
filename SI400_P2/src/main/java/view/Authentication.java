@@ -2,9 +2,12 @@ package view;
 
 import controller.Controller;
 
-/**
+/* 
+ * Classe Authentication, Interface de autenticação
  *
- * @author Gritti
+ * @author Grupo C
+ * @version 1.0
+ * @since 1.0
  */
 public class Authentication extends javax.swing.JDialog {
 
@@ -126,6 +129,11 @@ public class Authentication extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Faz a autenticação no banco
+     *
+     * @param evt evento
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         if (Controller.authentication(jTextField1.getText(), jTextField2.getText()) == true) {
@@ -137,6 +145,11 @@ public class Authentication extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Fecha a interface/modal e limpa a mensagem de erro.
+     *
+     * @param evt evento
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jLabel4.setText("");
         this.show(false);
